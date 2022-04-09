@@ -1,6 +1,6 @@
 # Quick Quotes
 
-![Project Image]()
+<!-- ![Project Image]() -->
 
 ### By: Samuel Martins
 
