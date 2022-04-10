@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { globalAgent } from 'http';
 import { Quote } from '../quote';
 
 @Component({
@@ -8,11 +7,16 @@ import { Quote } from '../quote';
   styleUrls: ['./quotes.component.css'],
 })
 export class QuotesComponent implements OnInit {
+  defaultQuote: Quote = new Quote(
+    'Samuel Martins',
+    'Samuel Martins',
+    'Life is what you make of it. It is everything you want it to be. It is the choices that you make that spices it up. Live it without regrets'
+  );
   quotes: Quote[] = [
     new Quote(
-      'Nelson Mandela',
+      'Barack Obama',
       'Samuel Martins',
-      'The greatest glory in living lies not in never falling, but in rising every time we fall'
+      "The real test is not whether you avoid this failure, because you won't. It's whether you let it harden or shame you into inaction, or whether you learn from it; whether you choose to persevere"
     ),
     new Quote(
       'Steve Jobs',
@@ -25,6 +29,36 @@ export class QuotesComponent implements OnInit {
       "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough"
     ),
   ];
+
+  topVoted: any = this.defaultQuote;
+  topVotes: number = 0;
+
+  highestVoted(quotes: any) {
+    let bestQuote;
+
+    for (let i = 0; i < quotes.length; i++) {
+      if (quotes[i].upvotes > this.topVotes) {
+        this.topVotes = quotes[i].upvotes;
+        console.log(quotes[i]);
+        this.topVoted = quotes[i];
+        this.quotes.unshift(quotes[i]);
+      }
+    }
+
+    if (this.topVotes === 0) {
+      this.topVoted = this.defaultQuote;
+    }
+  }
+
+  upvote(index: number) {
+    this.quotes[index].upvotes += 1;
+    this.highestVoted(this.quotes);
+  }
+
+  downvote(index: number) {
+    this.quotes[index].downvotes += 1;
+    this.highestVoted(this.quotes);
+  }
 
   constructor() {}
 
