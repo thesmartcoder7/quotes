@@ -9,7 +9,9 @@
 
     <p class="user">
       Posted
-      <span class="elapsed">{{ getTimeEapsed(singleQuote.timeElapsed) }}</span>
+      <span class="elapsed">{{
+        getTimeEapsed(singleQuote.timeElapsed) | timeConverter
+      }}</span>
       {{ singleQuote.timeSuffix }}
       ago by
       <span class="username"> {{ singleQuote.username }}</span>
