@@ -1,4 +1,4 @@
-<form class="share-form" #quotesForm="ngForm">
+<form class="share-form" (ngSubmit)="shareQuote()" #quotesForm="ngForm">
   <label for="author">
     <span>Author</span>
     <input
@@ -8,9 +8,11 @@
       required
       class="form-control"
       [(ngModel)]="author"
-      name="author"
       #name="ngModel"
     />
+    <p class="form-error" [hidden]="name.valid || name.pristine">
+      The name of the author is required
+    </p>
   </label>
   <label for="username">
     <span>Usermame</span>
@@ -21,9 +23,11 @@
       required
       class="form-control"
       [(ngModel)]="username"
-      name="username"
       #name="ngModel"
     />
+    <p class="form-error" [hidden]="name.valid || name.pristine">
+      your username of the author is required
+    </p>
   </label>
   <label for="quote">
     <span>Quote</span>
@@ -33,11 +37,17 @@
       required
       class="form-control"
       [(ngModel)]="quote"
-      name="quote"
       #name="ngModel"
     ></textarea>
+    <p class="form-error" [hidden]="name.valid || name.pristine">
+      Please provide a quote
+    </p>
   </label>
-  <button type="submit" class="btn btn-success" (click)="shareQuote()">
+  <!-- <button type="submit" class="btn btn-success" (click)="shareQuote()">
     Share
-  </button>
+  </button> -->
+  <input [disabled]="!quotesForm.valid" type="submit" value="Share" />
+  <p class="form-error" *ngIf="!quotesForm.valid">
+    Please fill all the fields to activate button
+  </p>
 </form>

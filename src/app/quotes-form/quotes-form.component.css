@@ -53,7 +53,8 @@ label textarea {
   font-size: 0.8vw;
 }
 
-button {
+button,
+input[type="submit"] {
   position: relative;
   left: -39%;
   margin-top: 5%;
@@ -70,4 +71,10 @@ button {
 
 button:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+p.form-error {
+  font-size: 0.8vw;
+  margin-top: 2%;
+  color: rgba(255, 255, 255, 0.7);
 }

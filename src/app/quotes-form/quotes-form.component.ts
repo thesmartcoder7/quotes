@@ -12,6 +12,7 @@ export class QuotesFormComponent implements OnInit {
   author!: string;
   username!: string;
   quote!: string;
+  errorExists!: boolean;
 
   @Output() addThisQuote = new EventEmitter<Quote>();
   shareQuote() {
