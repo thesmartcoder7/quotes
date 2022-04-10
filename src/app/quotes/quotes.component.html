@@ -6,7 +6,7 @@
   </div>
 
   <!-- quote -->
-  <div class="quote" *ngFor="let quote of quotes; let i = index">
+  <div class="quote" *ngFor="let quote of quotes; let i = index" appHighlight>
     <p class="actual-quote">
       {{ quote.quote }}
     </p>
