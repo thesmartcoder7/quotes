@@ -84,6 +84,10 @@
   justify-content: center;
 }
 
+.quotes app-quotes {
+  display: flex;
+}
+
 /* - - - footer styling - - - */
 footer {
   width: 100%;
