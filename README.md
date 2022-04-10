@@ -14,7 +14,7 @@
 
 ## Description
 
-This is a simple Angular quotes applicaiton where users can view recent quotes, share their quotes, upvote or downvote quotes, and delete quotes.[live site]()
+This is a simple Angular quotes applicaiton where users can view recent quotes, share their quotes, upvote or downvote quotes, and delete quotes.[live site](https://thesmartcoder7.github.io/quotes/)
 
 ## Behaviour Driven Development
 
