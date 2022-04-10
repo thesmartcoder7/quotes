@@ -69,7 +69,6 @@ export class QuotesComponent implements OnInit {
   }
 
   addNewQuote(event: Quote) {
-    console.log(event);
     this.quotes.push(event);
   }
 
