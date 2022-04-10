@@ -57,6 +57,15 @@ export class QuotesComponent implements OnInit {
     this.highestVoted(this.quotes);
   }
 
+  toggleDetails(index: number) {
+    this.quotes[index].showDetails = !this.quotes[index].showDetails;
+    if (this.quotes[index].showDetails) {
+      this.quotes[index].buttonText = 'hide details';
+    } else {
+      this.quotes[index].buttonText = 'show details';
+    }
+  }
+
   constructor() {}
 
   ngOnInit(): void {}

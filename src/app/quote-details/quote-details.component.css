@@ -1,0 +1,32 @@
+.details {
+  margin-top: 5%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  transition: all 0.5s ease-in-out;
+}
+
+.details .deets p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8vw;
+  line-height: 1.8vw;
+  letter-spacing: 0.05vw;
+}
+
+.details .deets p.user {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7vw;
+  line-height: 1.8vw;
+}
+
+.details .delete button {
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.5vw 1.5vw;
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(0.5vw);
+  font-size: 0.7vw;
+  outline: none;
+  border: solid 0.005vw rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  border-radius: 0.4vw;
+}

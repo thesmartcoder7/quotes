@@ -40,10 +40,11 @@
         <span>{{ quote.downvotes }}</span>
       </div>
       <div class="d-button">
-        <button>Details</button>
+        <button (click)="toggleDetails(i)">{{ quote.buttonText }}</button>
       </div>
     </div>
-    <div class="details">
+    <app-quote-details *ngIf="quote.showDetails"></app-quote-details>
+    <!-- <div class="details">
       <div class="deets">
         <p class="author">{{ quote.author }}</p>
         <p class="votes">
@@ -61,7 +62,7 @@
       <div class="delete">
         <button>Delete</button>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 
