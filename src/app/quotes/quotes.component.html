@@ -49,6 +49,7 @@
     <app-quote-details
       *ngIf="quote.showDetails"
       [singleQuote]="quote"
+      (quoteDelete)="deleteQuote($event, i)"
     ></app-quote-details>
   </div>
 </div>

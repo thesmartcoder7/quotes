@@ -68,6 +68,12 @@ export class QuotesComponent implements OnInit {
     }
   }
 
+  deleteQuote(quoteDelete: boolean, index: number) {
+    if (quoteDelete) {
+      this.quotes.splice(index, 1);
+    }
+  }
+
   constructor() {}
 
   ngOnInit(): void {}
