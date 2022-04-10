@@ -1,6 +1,20 @@
 .right,
 .left {
   width: 50%;
+  height: 100vh;
+  overflow: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.right::-webkit-scrollbar,
+.left::-webkit-scrollbar {
+  display: none;
+}
+
+.example {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .left .title,
@@ -36,6 +50,8 @@
 }
 
 .left .quote .highlight {
+  border: none;
+  outline: none;
   border-radius: 1vw;
   padding: 5%;
 }
