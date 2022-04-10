@@ -1,6 +1,6 @@
 # Quick Quotes
 
-<!-- ![Project Image]() -->
+![Project Image](src/assets/readme-image.png)
 
 ### By: Samuel Martins
 
