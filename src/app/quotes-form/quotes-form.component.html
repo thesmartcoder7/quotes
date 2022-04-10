@@ -1,15 +1,43 @@
-<div class="share-form">
+<form class="share-form" #quotesForm="ngForm">
   <label for="author">
     <span>Author</span>
-    <input type="text" name="authour" id="author" />
+    <input
+      type="text"
+      name="author"
+      id="author"
+      required
+      class="form-control"
+      [(ngModel)]="author"
+      name="author"
+      #name="ngModel"
+    />
   </label>
-  <label for="user">
+  <label for="username">
     <span>Usermame</span>
-    <input type="text" name="user" id="user" />
+    <input
+      type="text"
+      name="username"
+      id="username"
+      required
+      class="form-control"
+      [(ngModel)]="username"
+      name="username"
+      #name="ngModel"
+    />
   </label>
   <label for="quote">
     <span>Quote</span>
-    <textarea name="quote" id="quote"></textarea>
+    <textarea
+      name="quote"
+      id="quote"
+      required
+      class="form-control"
+      [(ngModel)]="quote"
+      name="quote"
+      #name="ngModel"
+    ></textarea>
   </label>
-  <input type="submit" value="Share" />
-</div>
+  <button type="submit" class="btn btn-success" (click)="shareQuote()">
+    Share
+  </button>
+</form>

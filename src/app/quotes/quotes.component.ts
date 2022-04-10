@@ -68,6 +68,11 @@ export class QuotesComponent implements OnInit {
     }
   }
 
+  addNewQuote(event: Quote) {
+    console.log(event);
+    this.quotes.push(event);
+  }
+
   deleteQuote(quoteDelete: boolean, index: number) {
     if (quoteDelete) {
       this.quotes.splice(index, 1);
