@@ -6,51 +6,113 @@
   </div>
 
   <!-- quote -->
-  <div class="quote" *ngFor="let quote of quotes; let i = index" appHighlight>
-    <p class="actual-quote">
-      {{ quote.quote }}
-    </p>
-    <div class="reactions">
-      <div class="user-action">
-        <div class="likes">
-          <svg
-            aria-hidden="true"
-            role="img"
-            viewBox="0 0 24 24"
-            (click)="upvote(i)"
-          >
-            <path
-              fill="currentColor"
-              d="M15.056 9.004c.46-1.427.693-2.677.693-3.754c0-2.398-.939-4.247-2.5-4.247c-.847 0-1.109.504-1.437 1.747c.018-.065-.163.634-.215.821c-.101.359-.277.97-.527 1.831a.247.247 0 0 1-.03.065L8.174 9.953a5.885 5.885 0 0 1-2.855 2.326l-1.257.482a1.75 1.75 0 0 0-1.092 1.967l.686 3.539a2.25 2.25 0 0 0 1.673 1.757l8.25 2.022a4.75 4.75 0 0 0 5.733-3.44l1.574-6.173a2.75 2.75 0 0 0-2.665-3.43h-3.165Z"
-            />
-          </svg>
-          <span>{{ quote.upvotes }}</span>
-        </div>
-        <div class="dislikes">
-          <svg
-            aria-hidden="true"
-            role="img"
-            viewBox="0 0 24 24"
-            (click)="downvote(i)"
-          >
-            <path
-              fill="currentColor"
-              d="M15.056 14.183c.46 1.427.693 2.676.693 3.753c0 2.398-.939 4.247-2.5 4.247c-.8 0-1.078-.45-1.383-1.546l-.27-1.022c-.1-.358-.276-.97-.526-1.83a.247.247 0 0 0-.03-.066l-2.866-4.485a5.885 5.885 0 0 0-2.855-2.327l-1.257-.481A1.75 1.75 0 0 1 2.97 8.458l.686-3.538a2.25 2.25 0 0 1 1.673-1.758l8.25-2.021a4.75 4.75 0 0 1 5.733 3.44l1.574 6.172a2.75 2.75 0 0 1-2.665 3.43h-3.165Z"
-            />
-          </svg>
-          <span>{{ quote.downvotes }}</span>
-        </div>
-      </div>
 
-      <div class="d-button">
-        <button (click)="toggleDetails(i)">{{ quote.buttonText }}</button>
+  <div class="quote" *ngFor="let quote of quotes; let i = index">
+    <div
+      class="highlight"
+      *ngIf="
+        quote.upvotes === topVotes && quote.upvotes !== 0;
+        then top;
+        else normal
+      "
+    ></div>
+    <ng-template #top>
+      <div class="highlight" appHighlight>
+        <p class="actual-quote">
+          {{ quote.quote }}
+        </p>
+        <div class="reactions">
+          <div class="user-action">
+            <div class="likes">
+              <svg
+                aria-hidden="true"
+                role="img"
+                viewBox="0 0 24 24"
+                (click)="upvote(i)"
+              >
+                <path
+                  fill="currentColor"
+                  d="M15.056 9.004c.46-1.427.693-2.677.693-3.754c0-2.398-.939-4.247-2.5-4.247c-.847 0-1.109.504-1.437 1.747c.018-.065-.163.634-.215.821c-.101.359-.277.97-.527 1.831a.247.247 0 0 1-.03.065L8.174 9.953a5.885 5.885 0 0 1-2.855 2.326l-1.257.482a1.75 1.75 0 0 0-1.092 1.967l.686 3.539a2.25 2.25 0 0 0 1.673 1.757l8.25 2.022a4.75 4.75 0 0 0 5.733-3.44l1.574-6.173a2.75 2.75 0 0 0-2.665-3.43h-3.165Z"
+                />
+              </svg>
+              <span>{{ quote.upvotes }}</span>
+            </div>
+            <div class="dislikes">
+              <svg
+                aria-hidden="true"
+                role="img"
+                viewBox="0 0 24 24"
+                (click)="downvote(i)"
+              >
+                <path
+                  fill="currentColor"
+                  d="M15.056 14.183c.46 1.427.693 2.676.693 3.753c0 2.398-.939 4.247-2.5 4.247c-.8 0-1.078-.45-1.383-1.546l-.27-1.022c-.1-.358-.276-.97-.526-1.83a.247.247 0 0 0-.03-.066l-2.866-4.485a5.885 5.885 0 0 0-2.855-2.327l-1.257-.481A1.75 1.75 0 0 1 2.97 8.458l.686-3.538a2.25 2.25 0 0 1 1.673-1.758l8.25-2.021a4.75 4.75 0 0 1 5.733 3.44l1.574 6.172a2.75 2.75 0 0 1-2.665 3.43h-3.165Z"
+                />
+              </svg>
+              <span>{{ quote.downvotes }}</span>
+            </div>
+          </div>
+
+          <div class="d-button">
+            <button (click)="toggleDetails(i)">{{ quote.buttonText }}</button>
+          </div>
+        </div>
+        <app-quote-details
+          *ngIf="quote.showDetails"
+          [singleQuote]="quote"
+          (quoteDelete)="deleteQuote($event, i)"
+        ></app-quote-details>
       </div>
-    </div>
-    <app-quote-details
-      *ngIf="quote.showDetails"
-      [singleQuote]="quote"
-      (quoteDelete)="deleteQuote($event, i)"
-    ></app-quote-details>
+    </ng-template>
+
+    <ng-template #normal>
+      <div class="highlight">
+        <p class="actual-quote">
+          {{ quote.quote }}
+        </p>
+        <div class="reactions">
+          <div class="user-action">
+            <div class="likes">
+              <svg
+                aria-hidden="true"
+                role="img"
+                viewBox="0 0 24 24"
+                (click)="upvote(i)"
+              >
+                <path
+                  fill="currentColor"
+                  d="M15.056 9.004c.46-1.427.693-2.677.693-3.754c0-2.398-.939-4.247-2.5-4.247c-.847 0-1.109.504-1.437 1.747c.018-.065-.163.634-.215.821c-.101.359-.277.97-.527 1.831a.247.247 0 0 1-.03.065L8.174 9.953a5.885 5.885 0 0 1-2.855 2.326l-1.257.482a1.75 1.75 0 0 0-1.092 1.967l.686 3.539a2.25 2.25 0 0 0 1.673 1.757l8.25 2.022a4.75 4.75 0 0 0 5.733-3.44l1.574-6.173a2.75 2.75 0 0 0-2.665-3.43h-3.165Z"
+                />
+              </svg>
+              <span>{{ quote.upvotes }}</span>
+            </div>
+            <div class="dislikes">
+              <svg
+                aria-hidden="true"
+                role="img"
+                viewBox="0 0 24 24"
+                (click)="downvote(i)"
+              >
+                <path
+                  fill="currentColor"
+                  d="M15.056 14.183c.46 1.427.693 2.676.693 3.753c0 2.398-.939 4.247-2.5 4.247c-.8 0-1.078-.45-1.383-1.546l-.27-1.022c-.1-.358-.276-.97-.526-1.83a.247.247 0 0 0-.03-.066l-2.866-4.485a5.885 5.885 0 0 0-2.855-2.327l-1.257-.481A1.75 1.75 0 0 1 2.97 8.458l.686-3.538a2.25 2.25 0 0 1 1.673-1.758l8.25-2.021a4.75 4.75 0 0 1 5.733 3.44l1.574 6.172a2.75 2.75 0 0 1-2.665 3.43h-3.165Z"
+                />
+              </svg>
+              <span>{{ quote.downvotes }}</span>
+            </div>
+          </div>
+
+          <div class="d-button">
+            <button (click)="toggleDetails(i)">{{ quote.buttonText }}</button>
+          </div>
+        </div>
+        <app-quote-details
+          *ngIf="quote.showDetails"
+          [singleQuote]="quote"
+          (quoteDelete)="deleteQuote($event, i)"
+        ></app-quote-details>
+      </div>
+    </ng-template>
   </div>
 </div>
 

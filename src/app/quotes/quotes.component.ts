@@ -39,7 +39,6 @@ export class QuotesComponent implements OnInit {
     for (let i = 0; i < quotes.length; i++) {
       if (quotes[i].upvotes > this.topVotes) {
         this.topVotes = quotes[i].upvotes;
-        console.log(quotes[i]);
         this.topVoted = quotes[i];
       }
     }

@@ -33,6 +33,10 @@
   border: solid 0.1vw rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(0.3vw);
   border-radius: 1vw;
+}
+
+.left .quote .highlight {
+  border-radius: 1vw;
   padding: 5%;
 }
 
