@@ -34,14 +34,11 @@ export class QuotesComponent implements OnInit {
   topVotes: number = 0;
 
   highestVoted(quotes: any) {
-    let bestQuote;
-
     for (let i = 0; i < quotes.length; i++) {
       if (quotes[i].upvotes > this.topVotes) {
         this.topVotes = quotes[i].upvotes;
         console.log(quotes[i]);
         this.topVoted = quotes[i];
-        this.quotes.unshift(quotes[i]);
       }
     }
 
