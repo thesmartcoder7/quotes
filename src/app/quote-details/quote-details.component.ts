@@ -16,5 +16,30 @@ export class QuoteDetailsComponent implements OnInit {
     this.quoteDelete.emit(value);
   }
 
+  getTimeEapsed(value: any) {
+    let currentTime: any = new Date();
+    let elapsedTime: any = currentTime - value;
+    if (elapsedTime > 59000) {
+      this.singleQuote.timeSuffix = 'minute';
+    } else if (elapsedTime > 120000) {
+      this.singleQuote.timeSuffix = 'minutes';
+    } else if (elapsedTime > 3600000) {
+      this.singleQuote.timeSuffix = 'hour';
+    } else if (elapsedTime > 7200000) {
+      this.singleQuote.timeSuffix = 'hours';
+    } else if (elapsedTime > 86400000) {
+      this.singleQuote.timeSuffix = 'day';
+    } else if (elapsedTime > 172800000) {
+      this.singleQuote.timeSuffix = 'days';
+    } else {
+      this.singleQuote.timeSuffix = 'seconds';
+    }
+    return elapsedTime;
+  }
+
+  getType(input: any) {
+    return typeof input;
+  }
+
   ngOnInit(): void {}
 }

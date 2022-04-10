@@ -1,7 +1,7 @@
 export class Quote {
   upvotes: number;
   downvotes: number;
-  timeElapsed: number;
+  timeElapsed!: any;
   timeSuffix: string;
   showDetails: boolean;
   buttonText: string;
@@ -15,6 +15,5 @@ export class Quote {
     this.timeSuffix = 'seconds';
     this.upvotes = 0;
     this.downvotes = 0;
-    this.timeElapsed = 0;
   }
 }

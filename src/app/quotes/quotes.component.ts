@@ -66,8 +66,9 @@ export class QuotesComponent implements OnInit {
       this.quotes[index].buttonText = 'show details';
     }
   }
-
   addNewQuote(event: Quote) {
+    let creationTime: Date = new Date();
+    event.timeElapsed = creationTime;
     this.quotes.push(event);
   }
 

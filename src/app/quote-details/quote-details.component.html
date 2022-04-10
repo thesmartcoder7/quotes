@@ -8,7 +8,8 @@
     </p>
 
     <p class="user">
-      Posted <span class="elapsed">{{ singleQuote.timeElapsed }}</span>
+      Posted
+      <span class="elapsed">{{ getTimeEapsed(singleQuote.timeElapsed) }}</span>
       {{ singleQuote.timeSuffix }}
       ago by
       <span class="username"> {{ singleQuote.username }}</span>
