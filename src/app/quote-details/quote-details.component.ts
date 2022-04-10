@@ -19,15 +19,15 @@ export class QuoteDetailsComponent implements OnInit {
   getTimeEapsed(value: any) {
     let currentTime: any = new Date();
     let elapsedTime: any = currentTime - value;
-    if (elapsedTime > 59000) {
+    if (elapsedTime > 59000 && elapsedTime < 120000) {
       this.singleQuote.timeSuffix = 'minute';
-    } else if (elapsedTime > 120000) {
+    } else if (elapsedTime > 120000 && elapsedTime < 3600000) {
       this.singleQuote.timeSuffix = 'minutes';
-    } else if (elapsedTime > 3600000) {
+    } else if (elapsedTime > 3600000 && elapsedTime < 7200000) {
       this.singleQuote.timeSuffix = 'hour';
-    } else if (elapsedTime > 7200000) {
+    } else if (elapsedTime > 7200000 && elapsedTime < 86400000) {
       this.singleQuote.timeSuffix = 'hours';
-    } else if (elapsedTime > 86400000) {
+    } else if (elapsedTime > 86400000 && elapsedTime < 172800000) {
       this.singleQuote.timeSuffix = 'day';
     } else if (elapsedTime > 172800000) {
       this.singleQuote.timeSuffix = 'days';
