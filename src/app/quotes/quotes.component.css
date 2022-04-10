@@ -45,22 +45,28 @@
 .left .quote .reactions {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   margin-top: 5%;
+}
+
+.left .quote .reactions .user-action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .left .quote .reactions .likes,
 .left .quote .reactions .dislikes {
   display: flex;
   align-items: center;
-  margin-right: 7%;
+  margin-right: 1.5vw;
 }
 
 .left .quote .reactions .likes svg,
 .left .quote .reactions .dislikes svg {
   color: rgba(255, 255, 255, 0.7);
   width: 2vw;
-  margin-right: 10%;
+  margin-right: 0.5vw;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }

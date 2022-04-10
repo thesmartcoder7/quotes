@@ -33,6 +33,8 @@ export class QuotesComponent implements OnInit {
   topVoted: any = this.defaultQuote;
   topVotes: number = 0;
 
+  newQuote!: Quote;
+
   highestVoted(quotes: any) {
     for (let i = 0; i < quotes.length; i++) {
       if (quotes[i].upvotes > this.topVotes) {

@@ -1,28 +1,17 @@
 <div class="details">
   <div class="deets">
-    <!-- <p class="author">{{ quote.author }}</p> -->
-    <p class="author">Author</p>
-    <!-- <p class="votes">
-      Upvotes :&nbsp;&nbsp;<span class="up">{{ quote.upvotes }}</span
-      >&nbsp;&nbsp;&nbsp; Downvotes :&nbsp;&nbsp;
-      <span class="down">{{ quote.downvotes }}</span>
-    </p> -->
+    <p class="author">Author: {{ singleQuote.author }}</p>
     <p class="votes">
-      Upvotes :&nbsp;&nbsp;<span class="up">123</span>&nbsp;&nbsp;&nbsp;
-      Downvotes :&nbsp;&nbsp;
-      <span class="down">235</span>
+      Upvotes :&nbsp;&nbsp;<span class="up">{{ singleQuote.upvotes }}</span
+      >&nbsp;&nbsp;&nbsp; Downvotes :&nbsp;&nbsp;
+      <span class="down">{{ singleQuote.downvotes }}</span>
     </p>
 
-    <!-- <p class="user">
-      Posted <span class="elapsed">{{ quote.timeElapsed }}</span>
-      {{ quote.timeSuffix }}
-      ago by
-      <span class="username"> {{ quote.username }}</span>
-    </p> -->
     <p class="user">
-      Posted <span class="elapsed"> 5</span>
-      seconds ago by
-      <span class="username"> Samuel Martins</span>
+      Posted <span class="elapsed">{{ singleQuote.timeElapsed }}</span>
+      {{ singleQuote.timeSuffix }}
+      ago by
+      <span class="username"> {{ singleQuote.username }}</span>
     </p>
   </div>
   <div class="delete">
