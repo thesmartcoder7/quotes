@@ -10,11 +10,7 @@
   <div class="quote" *ngFor="let quote of quotes; let i = index">
     <div
       class="highlight"
-      *ngIf="
-        quote.upvotes === topVotes && quote.upvotes !== 0;
-        then top;
-        else normal
-      "
+      *ngIf="quote === topVoted; then top; else normal"
     ></div>
     <ng-template #top>
       <div class="highlight" appHighlight>

@@ -30,21 +30,15 @@ export class QuotesComponent implements OnInit {
     ),
   ];
 
-  topVoted: any = this.defaultQuote;
-  topVotes: number = 0;
+  topVoted: Quote = this.defaultQuote;
 
-  newQuote!: Quote;
+  // newQuote!: Quote;
 
-  highestVoted(quotes: any) {
+  highestVoted(quotes: Quote[]) {
     for (let i = 0; i < quotes.length; i++) {
-      if (quotes[i].upvotes > this.topVotes) {
-        this.topVotes = quotes[i].upvotes;
+      if (quotes[i].upvotes > this.topVoted.upvotes) {
         this.topVoted = quotes[i];
       }
-    }
-
-    if (this.topVotes === 0) {
-      this.topVoted = this.defaultQuote;
     }
   }
 
