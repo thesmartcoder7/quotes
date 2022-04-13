@@ -75,6 +75,10 @@
   text-transform: capitalize;
 }
 
+#best-quote {
+  width: 100%;
+}
+
 /* - - - quote body styling - - - */
 .quotes {
   width: 100%;
